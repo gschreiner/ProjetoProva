@@ -1,4 +1,4 @@
-<%@page import="models.Professor"%>
+<%@page import="edu.unoesc.model.Professor"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -37,33 +37,8 @@
 
 
 
-	<div
-		style="position: relative; display: inline-block; width: 70%; margin-bottom: 40px; margin-left: 15%; border-collapse: collapse;">
-		<form action="MicroCad" method="GET">
-			<p>Para não dizer que não ajudo em nada, aqui tem um exemplo de
-				como criar o combobox para selecionar um professor</p>
-
-			<%
-				List<Professor> professores;
-				if (session.getAttribute("professores") == null) {
-					professores = new ArrayList<Professor>();
-					session.setAttribute("professores", professores);
-				} else
-					professores = (ArrayList<Professor>) session.getAttribute("professores");
-			%>
-			<% if (professores.size() > 0){ %>
-				<select name="select">
-					<% for (int i=0; i < professores.size();i++){ %>
-						<option value="<%= i%>"><%= professores.get(i).getNome()%></option>
-					<%}%>
-				</select>
-			<%}%>	
-			<!--             <input type="submit" value="Cadastrar" /> -->
-
-		</form>
-	</div>
 	
-	<a href="Index.jsp"> Voltar</a>
+	<a href="/ProjetoProva"> Voltar</a>
 
 </body>
 </html>

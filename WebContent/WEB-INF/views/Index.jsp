@@ -18,8 +18,8 @@
 		
 		<p> Cadastros disponíveis</p>
 		<ul>
-			<li><a href="ProfessoresView.jsp"> Professores</li>
-			<li><a href="DisciplinaView.jsp"> Disciplinas</li>
+			<li><a href="professores"> Professores</li>
+			<li><a href="disciplinas"> Disciplinas</li>
 		
 		</ul>
 </body>
