@@ -33,7 +33,6 @@ public class ProfessorDAOImpl implements ProfessorDAO {
 	}
 
 	@Override
-	@Transactional
 	public boolean deleteProfessor(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
 		Professor p = (Professor) session.load(Professor.class, new Integer(id));
@@ -45,7 +44,6 @@ public class ProfessorDAOImpl implements ProfessorDAO {
 	}
 
 	@Override
-	@Transactional
 	public boolean insertProfessor(Professor p) {
 		
 		this.sessionFactory.getCurrentSession().save(p);
@@ -54,7 +52,6 @@ public class ProfessorDAOImpl implements ProfessorDAO {
 	}
 
 	@Override
-	@Transactional
 	public boolean updateProfessor(Professor p) {
 		Session session = this.sessionFactory.getCurrentSession();
 		session.update(p);

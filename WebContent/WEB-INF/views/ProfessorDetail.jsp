@@ -22,19 +22,19 @@
 
 			<p>
 				E-Mail:
-				<form:input path="professor.email" />
+				<form:input path="professor.email" readonly="true" />
 				
 			</p>
 			
 			<p>
 				Telefone:
-				<form:input path="professor.telefone" />
+				<form:input path="professor.telefone" readonly="true" />
 				
 			</p>
 
 			<p>
 				Data de Nascimento:
-				<form:input path="professor.dataNasc" />
+				<form:input path="professor.dataNasc" readonly="true" />
 			</p>
 
 			<input type="submit" value="Salvar" />

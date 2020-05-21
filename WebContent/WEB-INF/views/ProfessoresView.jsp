@@ -57,7 +57,7 @@
 
 			<p>
 				Data de Nascimento:
-				<form:input  path="professor.dataNasc" />
+				<form:input path="professor.dataNasc" />
 			</p>
 
 			<input type="submit" value="Adicionar" />

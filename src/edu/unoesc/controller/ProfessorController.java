@@ -46,7 +46,7 @@ public class ProfessorController {
 
 		Professor user = this.professorDao.getProfessorById(id);
 
-		model.addAttribute("professor", user);
+		model.addAttribute("professor", new Professor());
 
 		return "ProfessorDetail";
 
@@ -57,7 +57,7 @@ public class ProfessorController {
 
 		this.professorDao.updateProfessor(professor);
 
-		return "redirect:/professores";
+		return "redirect:/profs";
 	}
 
 }
