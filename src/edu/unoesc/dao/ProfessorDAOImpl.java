@@ -20,7 +20,7 @@ public class ProfessorDAOImpl implements ProfessorDAO {
 	@Transactional
 	public Professor getProfessorById(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
-		Professor p = (Professor) session.get(Professor.class, new Integer(id));
+		Professor p = (Professor) session.load(Professor.class, new Integer(id));
 		
 		return p;
 	}
