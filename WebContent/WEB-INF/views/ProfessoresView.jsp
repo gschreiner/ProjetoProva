@@ -29,6 +29,7 @@
 					<td>${p.telefone}</td>
 					<td><fmt:formatDate pattern="dd/MM/yyyy" value="${p.dataNasc}" /></td>
 					<td><a href="professorDetail/${p.id}">Edit</a></td>
+					<td><a href="professorDelete/${p.id}">Del</a></td>
 				</tr>
 			</c:forEach>
 		</table>

@@ -59,5 +59,16 @@ public class ProfessorController {
 
 		return "redirect:/profs";
 	}
+	
+	@RequestMapping(value = "/professorDelete/{id}")
+	public String professorDelete(@PathVariable int id, Model model) {
+
+		this.professorDao.deleteProfessor(id);
+
+		
+
+		return "Fessor";
+
+	}
 
 }
