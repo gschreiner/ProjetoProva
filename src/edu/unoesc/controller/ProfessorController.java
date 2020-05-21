@@ -64,9 +64,7 @@ public class ProfessorController {
 	public String professorDelete(@PathVariable int id, Model model) {
 
 		this.professorDao.deleteProfessor(id);
-
 		
-
 		return "Fessor";
 
 	}
