@@ -9,7 +9,7 @@ CREATE TABLE professores (
 CREATE TABLE disciplinas (
 	id serial PRIMARY KEY,
 	nome varchar(100),
-	cargaHoraria int,
+	cargaHoraria int, 
 	maxParticipantes int,
 	dataInicio date,
 	id_professor int not null,
