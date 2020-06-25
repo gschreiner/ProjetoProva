@@ -9,9 +9,9 @@ CREATE TABLE professores (
 CREATE TABLE disciplinas (
 	id serial PRIMARY KEY,
 	nome varchar(100),
-	cargaHoraria SMALLINT,
+	cargaHoraria int,
 	maxParticipantes int,
 	dataInicio date,
-	id_professor int,
+	id_professor int not null,
 	FOREIGN KEY (id_professor) REFERENCES professores (id)
 );

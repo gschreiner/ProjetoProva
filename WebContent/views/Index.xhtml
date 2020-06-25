@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+
+
+	
+	
+	<p:outputPanel style="margin: 20px auto; width:650px;">
+		<h3> Prova 3 (JSF)</h3>
+	
+        <p>Este é um projeto para demostrar algumas das habilidades que você aprendeu até agora na disciplina de PROG 3.</p>
+		
+		<p> A tarefa consiste no seguinte: </p>
+		
+		<ol type="1">
+			<li>  Você deve corrigir problemas no cadastro de professores. As telas estão prontas (claro que você pode melhorá-las) mas por algum motivo o cadasstro não esta funcionando. Você deverá corrigir o código para que sejá possível cadastrar professores. Além disso, você deve adicionar algumas validações: Validação de Email, e o nome do professor deve ser obrigatório. </li>
+			<li>  Seguindo o modelo MVC de desenvolvimento você deve criar um cadastro de disciplina. A disciplina esta detalhada dentro da página de Disciplinas. Além do cadastro o sistema deve apresentar uma lista das disciplinas cadastradas e seus respectivos professores, e deve permitir a edição de uma disciplina.   </li>
+		</ol>
+		
+		<p> Cadastros disponíveis</p>
+    </p:outputPanel>
+
+	<p:panel id="panelCad" header="Menu"
+		style="margin: 20px auto; width:150px;">
+		
+		<p:linkButton outcome="Professores.xhtml"	value="Professores" style="margin-right:20px; width:120px;" />
+		<p:linkButton outcome="Disciplinas.xhtml" value="Disciplinas" 	style="margin-right:20px;width:120px;" />
+
+	</p:panel>
+
+</h:body>
+</html>

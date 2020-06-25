@@ -1,18 +1,22 @@
-<%@page import="edu.unoesc.model.Professor"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Disciplinas</title>
-</head>
-<body>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+  
+<h:head>
+	<p:breadCrumb>
+		<p:menuitem value="Categories" url="Index.xhtml" />
+		<p:menuitem value="Disciplinas" url="#" />
+	</p:breadCrumb>
+</h:head>
 
-	<div
-		style="position: relative; display: inline-block; width: 80%; margin-bottom: 40px; margin-left: 15%; border-collapse: collapse;">
+<h:body>
+
+	<p:outputPanel style="margin: 20px auto; width:650px;">
 		<h2>Descrição</h2>
 
 		<p>Voce deverá criar uma tela que apresente as disciplinas
@@ -21,24 +25,23 @@
 		<p>Uma disciplina possui: nome (String), carga horária (inteiro),
 			data de início (data), máximo de participantes (inteiro) e um
 			professor titular (Professor).</p>
+			
+			<p>Você deve adicionar as seguintes validações: Nome obrigatório, carga horária entre 10 e 100, Professor Titular obrigatório</p>
+			
 		<p>Além do cadastro o sistema deve possuir as features de
 			apresentar com detalhes uma disciplina (nos padroes do feito em
 			professores), e deve ser capaz de editar as informações da
 			disciplina.</p>
-		<p>Uma feature que não é obrigatória mas seria interessante para o
-			sistema é  a possibilidade de excluir uma discplina.</p>
 
 		<p>Lembresse de desenvolver tudo levando em consideração o padrão
 			MVC e de apresentar todas as features obrigatórias. Seja criativo(a),
 			um sistema com diferenciais terá uma nota diferenciada :).</p>
 			
 		<p> OBS: Pode apagar toda esta descrição e criar a página neste aquivo.</p>
-	</div>
+	</p:outputPanel>
 
 
 
 	
-	<a href="/ProjetoProva"> Voltar</a>
-
-</body>
+</h:body>
 </html>

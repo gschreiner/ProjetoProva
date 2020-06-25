@@ -2,6 +2,11 @@ package edu.unoesc.controller;
 
 import java.util.ArrayList;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,60 +18,79 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 import edu.unoesc.dao.ProfessorDAO;
 import edu.unoesc.model.Professor;
+import edu.unoesc.model.Professor;
 
-@Controller
+@ManagedBean(name="professorMB")
+@RequestScoped
 public class ProfessorController {
+	
+	private static final long serialVersionUID = 1L;
+	
+	private ArrayList<Professor> professores;
+	private Professor professor = new Professor();	
 
-	@Autowired
+	@ManagedProperty(value="#{ProfessorDAO}")
 	private ProfessorDAO professorDao;
-
-	@RequestMapping(value = "/professores", method = RequestMethod.GET)
-	public String professoresList(Model m) {
-
-		ArrayList<Professor> professores = new ArrayList(professorDao.getProfessors());
-
-		m.addAttribute("listProfessores", professores);
-		m.addAttribute("professor", new Professor());
-
-		return "ProfessoresView";
-	}
-
-	@RequestMapping(value = "/professorSave", method = RequestMethod.POST)
-	public String save(@ModelAttribute("professor") Professor professor) {
-
-		this.professorDao.insertProfessor(professor);
-
-		return "redirect:/professores";
-	}
-
-	@RequestMapping(value = "/professorDetail/{id}")
-	public String professor(@PathVariable int id, Model model) {
-
-		Professor user = this.professorDao.getProfessorById(id);
-
-		model.addAttribute("professor", new Professor());
-
-		return "ProfessorDetail";
-
-	}
-
-	@RequestMapping(value = "/professorUpdate", method = RequestMethod.POST)
-	public String professorEdit(@ModelAttribute("professor") Professor professor) {
-
-		this.professorDao.updateProfessor(professor);
-
-		return "redirect:/profs";
+	
+public void save() {
+		
+		if (professor.getId() == 0) {
+			this.professorDao.deleteProfessor(professor.getId());
+		}else {
+			this.professorDao.insertProfessor(professor);
+		}
+		
+		professor = new Professor();
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Professor Salvo"));
+	
 	}
 	
-	@RequestMapping(value = "/professorDelete/{id}")
-	public String professorDelete(@PathVariable int id, Model model) {
+	public void delete(int id) {
 
-		this.professorDao.deleteProfessor(id);
+		this.professorDao.deleteProfessor(id);		
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Professor Excluido"));
 		
-		return "Fessor";
-
 	}
+	
+	public void load(int id) {
+		professor = this.professorDao.getProfessorById(id);		
+	}
+	
+
+	public ArrayList<Professor> getProfessores() {
+		professores = new ArrayList(professorDao.getProfessores());
+		return professores;
+	}
+
+	public void setProfessores(ArrayList<Professor> professores) {
+		
+		this.professores = professores;
+	}
+
+	public Professor getProfessor() {
+		professor = new Professor();
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
+
+	public ProfessorDAO getProfessorDao() {
+		return professorDao;
+	}
+
+	public void setProfessorDao(ProfessorDAO professorDao) {
+		this.professorDao = professorDao;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	
 
 }

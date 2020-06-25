@@ -1,25 +1,13 @@
 package edu.unoesc.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-@Controller
+@ManagedBean(name = "disciplinaMB")
+@RequestScoped
 public class DisciplinaController {
 
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/disciplinas", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-
-		return "DisciplinaView";
-	}
+	private static final long serialVersionUID = 1L;
 
 }

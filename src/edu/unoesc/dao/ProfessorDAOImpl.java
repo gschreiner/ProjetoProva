@@ -6,11 +6,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.unoesc.model.Professor;
 
-@Repository
+@Service(value="ProfessorDAO")
 public class ProfessorDAOImpl implements ProfessorDAO {
 	
 	@Autowired
@@ -27,7 +28,7 @@ public class ProfessorDAOImpl implements ProfessorDAO {
 
 	@Override
 	@Transactional
-	public List<Professor> getProfessors() {
+	public List<Professor> getProfessores() {
 		
 		return this.sessionFactory.getCurrentSession().createQuery("from Professor").list();
 	}
@@ -44,8 +45,9 @@ public class ProfessorDAOImpl implements ProfessorDAO {
 	}
 
 	@Override
+	@Transactional
 	public boolean insertProfessor(Professor p) {
-		
+		p.setNome("Não ta salvando certo");
 		this.sessionFactory.getCurrentSession().save(p);
 		
 		return false;
