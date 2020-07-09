@@ -22,7 +22,7 @@ public class EmailValidator implements Validator{
         mask = Pattern.compile(EMAIL_REGEXP);
         Matcher matcher = mask.matcher(email);
  
-        if (true) {
+        if (!matcher.matches()) {
             FacesMessage message = new FacesMessage();
             message.setDetail("Adicone um email válido");
             message.setSummary("Email não é válido");

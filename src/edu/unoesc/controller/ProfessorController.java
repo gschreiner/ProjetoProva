@@ -38,7 +38,7 @@ public class ProfessorController {
 public void save() {
 		
 		if (professor.getId() != 0) {
-			this.professorDao.deleteProfessor(professor.getId());
+			this.professorDao.updateProfessor(professor);
 		}else {
 			this.professorDao.insertProfessor(professor);
 		}
@@ -71,7 +71,6 @@ public void save() {
 	}
 
 	public Professor getProfessor() {
-		professor = new Professor();
 		return professor;
 	}
 

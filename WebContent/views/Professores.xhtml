@@ -22,7 +22,7 @@
 		<p:dataTable var="p" value="#{professorMB.professores}" scrollable="true"
 			scrollHeight="200">
 			<p:column headerText="Nome">
-				<h:outputText value="Geomar" />
+				<h:outputText value="#{p.nome}" />
 			</p:column>
 
 			<p:column headerText="email">
@@ -58,13 +58,15 @@
 
 				<h:outputText value="Email: " />
 				<p:inputText value="#{professorMB.professor.email}"/>
-
+				
+				<h:outputText value="Telefone: " />
+				<p:inputText value="#{professorMB.professor.telefone}"/>
 
 				<h:outputLabel for="dataNasc" value="Data Nascimento:" />
 				<p:datePicker id="dataNasc" value="#{professorMB.professor.dataNasc}" pattern="dd/MM/yyyy"
 				locale="pt_BR" showIcon="true" />
 
-				<p:commandButton value="Salvar" icon="ui-icon-disk" update="panelCad"
+				<p:commandButton value="Salvar" icon="ui-icon-disk" update="panelCad panel"
 					action="#{professorMB.save}" style="margin-right:20px;" />
 
 			</h:panelGrid>

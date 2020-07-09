@@ -9,13 +9,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "PROFESSORES")
-public class Professor implements Serializable {
+@Table(name = "DISCIPLINAS")
+public class Disciplina implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,17 +26,20 @@ public class Professor implements Serializable {
 	@Column(name = "nome")
 	private String nome;
 	
-	@Column(name = "email")
-	private String email;
+	@Column(name = "cargaHoraria")
+	private int cargaHoraria;
 	
-	@Column(name = "telefone")
-	private String telefone;
+	@Column(name = "maxParticipantes")
+	private int maxParticipantes;
 	
-	@Column(name = "dataNasc")
+	@Column(name = "dataInicio")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataNasc;
 
-	
+	@ManyToOne
+	@JoinColumn(name = "id_professor", referencedColumnName = "id")
+	private Professor professor;
+
 	public int getId() {
 		return id;
 	}
@@ -51,20 +56,20 @@ public class Professor implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getEmail() {
-		return email;
+	public int getCargaHoraria() {
+		return cargaHoraria;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setCargaHoraria(int cargaHoraria) {
+		this.cargaHoraria = cargaHoraria;
 	}
 
-	public String getTelefone() {
-		return telefone;
+	public int getMaxParticipantes() {
+		return maxParticipantes;
 	}
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+	public void setMaxParticipantes(int maxParticipantes) {
+		this.maxParticipantes = maxParticipantes;
 	}
 
 	public Date getDataNasc() {
@@ -75,33 +80,24 @@ public class Professor implements Serializable {
 		this.dataNasc = dataNasc;
 	}
 
-	public String getDataNasFormated() {
-		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-		if (this.dataNasc == null)
-			return format.format(new Date());
-		
-		return format.format(this.dataNasc);
-	}
-	
-	public String getDataNasDateInput() {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		if (this.dataNasc == null)
-			return format.format(new Date());
-		
-		return format.format(this.dataNasc);
+	public Professor getProfessor() {
+		return professor;
 	}
 
-	
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + cargaHoraria;
 		result = prime * result + ((dataNasc == null) ? 0 : dataNasc.hashCode());
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + id;
+		result = prime * result + maxParticipantes;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
+		result = prime * result + ((professor == null) ? 0 : professor.hashCode());
 		return result;
 	}
 
@@ -113,35 +109,31 @@ public class Professor implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Professor other = (Professor) obj;
+		Disciplina other = (Disciplina) obj;
+		if (cargaHoraria != other.cargaHoraria)
+			return false;
 		if (dataNasc == null) {
 			if (other.dataNasc != null)
 				return false;
 		} else if (!dataNasc.equals(other.dataNasc))
 			return false;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
 		if (id != other.id)
+			return false;
+		if (maxParticipantes != other.maxParticipantes)
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
-		if (telefone == null) {
-			if (other.telefone != null)
+		if (professor == null) {
+			if (other.professor != null)
 				return false;
-		} else if (!telefone.equals(other.telefone))
+		} else if (!professor.equals(other.professor))
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-
-		return this.nome;
-	}
+	
+	
+	
 }
