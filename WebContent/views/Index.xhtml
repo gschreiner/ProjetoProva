@@ -12,27 +12,47 @@
 <h:body>
 
 
-	
-	
+
+
 	<p:outputPanel style="margin: 20px auto; width:650px;">
-		<h3> Prova 3 (JSF)</h3>
-	
-        <p>Este é um projeto para demostrar algumas das habilidades que você aprendeu até agora na disciplina de PROG 3.</p>
-		
-		<p> A tarefa consiste no seguinte: </p>
-		
+		<h3>Prova 3 (JSF)</h3>
+
+		<p>Este é um projeto para demostrar algumas das habilidades que
+			você aprendeu até agora na disciplina de PROG 3.</p>
+
+		<p>A tarefa consiste no seguinte:</p>
+
 		<ol type="1">
-			<li>  Seguindo o modelo MVC de desenvolvimento você deve criar um cadastro de disciplina (Model esta pronto). A disciplina esta detalhada dentro da página de Disciplinas. Além do cadastro o sistema deve apresentar uma lista das disciplinas cadastradas e seus respectivos professores, e deve permitir a edição de uma disciplina.   </li>
+			<li>Verifique se esta tudo 'Ok' com o cadastro de professores, e
+				caso necessário, realize as correções necessárias</li>
+			<li>Seguindo o modelo MVC de desenvolvimento você deve criar um
+				cadastro de disciplina (Model esta pronto). A disciplina esta
+				detalhada dentro da página de Disciplinas. Além do cadastro o
+				sistema deve apresentar uma lista das disciplinas cadastradas e seus
+				respectivos professores, e deve permitir a edição de uma disciplina.
+			</li>
+			<li>Além disso, você deve implementar um sistema de login
+				simples. Crie um model para o usuário, seguindo a DDL presente neste
+				projeto. Você não precisa fazer uma tela de cadastro para usuários.
+				Seu sistema deve possuir dois usuários (podendo ser cadastrados
+				diretamente no BD). O user 'coordenador' (senha 1234) deve ser capaz
+				de cadastrar novas disciplinas, e professores. Já o outro usuário
+				deve ser o 'prof' (senha 4321) que apenas pode ver as disciplinas e
+				professores cadastrados, sem poder cadastrar nada.</li>
 		</ol>
 		
-		<p> Cadastros disponíveis</p>
-    </p:outputPanel>
+		<p>Obs: Utilize o projeto como base o sistema de login feito na aula passada, as adaptações são simples.</p>
+
+		<p>Cadastros disponíveis</p>
+	</p:outputPanel>
 
 	<p:panel id="panelCad" header="Menu"
 		style="margin: 20px auto; width:150px;">
-		
-		<p:linkButton outcome="Professores.xhtml"	value="Professores" style="margin-right:20px; width:120px;" />
-		<p:linkButton outcome="Disciplinas.xhtml" value="Disciplinas" 	style="margin-right:20px;width:120px;" />
+
+		<p:linkButton outcome="Professores.xhtml" value="Professores"
+			style="margin-right:20px; width:120px;" />
+		<p:linkButton outcome="Disciplinas.xhtml" value="Disciplinas"
+			style="margin-right:20px;width:120px;" />
 
 	</p:panel>
 
